@@ -13,11 +13,11 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Güncellendi
+    runs-on: ubuntu-22.04  # ubuntu-20.04 kaldırıldığı için güncellendi
 
     steps:
     - name: Check Out
-      uses: actions/checkout@v3  # v3 olarak güncellendi (isteğe bağlı)
+      uses: actions/checkout@v3  # Güncel kararlı sürüm
 
     - name: Prepare the environment
       run: |
@@ -52,7 +52,7 @@ jobs:
         mv fastbootd-recovery.tar fastbootd-recovery.tar.md5
 
     - name: Upload Recovery
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # v3 destek dışı olduğu için v4'e güncellendi
       with:
         path: output/*.md5
         name: Patched-Recovery
